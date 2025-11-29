@@ -131,3 +131,17 @@ WHERE nome = 'Salão Social';
 UPDATE Culto 
 SET horario = '19:30:00' 
 WHERE id_culto = 1;
+
+-- 1. Remover um visitante específico (Ex: Cadastro duplicado)
+DELETE FROM Visitante 
+WHERE id_visitante = 1;
+
+-- 2. Remover uma oferta lançada errada
+DELETE FROM Oferta 
+WHERE id_oferta = 3;
+
+-- 3. Remover um membro que saiu (Geralmente usaríamos update para 'Inativo', mas para o exercício usamos DELETE)
+-- OBS: Isso pode falhar se ele tiver vínculos em tabelas filho sem CASCADE. 
+-- Para o exercício, vamos remover um evento que é mais seguro (não tem dependentes no nosso exemplo):
+DELETE FROM Evento 
+WHERE id_evento = 1;
